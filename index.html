@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Login Page</title>
+	<style type="text/css">
+		
+		* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Roboto;
+  background-color: #5D5454;
+  color: #BBB2A2;
+}
+
+.container {
+  margin: 50px auto;
+  max-width: 400px;
+  background-color: #80746D;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  animation: slide 1s ease-in-out forwards, fade 1s ease-in-out forwards;
+}
+
+header {
+
+  background-color: #FFF;
+  padding: 30px;
+  margin-bottom: 75px;
+  animation: fade 1s ease-in-out forwards;
+}
+
+form {
+  padding: 20px;
+  animation: slide 1s ease-in-out forwards, fade 1s ease-in-out forwards;
+}
+
+label {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="password"] {
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  width: 100%;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  background-color: #BBB2A2;
+}
+
+button[type="submit"] {
+  padding: 10px;
+  background-color: #5D5454;
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button[type="submit"]:hover {
+  background-color: #80746D;
+}
+
+#Intro {
+
+	font-size: 150%;
+	text-align: center;
+	animation: slide 1s ease-in-out forwards, fade 1s ease-in-out forwards;
+
+}
+
+.forgot-password {
+  margin-top: 10px;
+  text-align: right;
+}
+
+.footer {
+  margin-top: 30px;
+  padding-top: 10px;
+  border-top: 1px solid #BBB2A2;
+  text-align: center;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.social-icons a {
+  margin: 0 10px;
+}
+
+.social-icons img {
+  width: 30px;
+  height: 30px;
+}
+
+@keyframes slide {
+			from {
+				transform: translateY(100%);
+			}
+			to {
+				transform: translateY(0%);
+			}
+		}
+
+		@keyframes fade {
+			from {
+				opacity: 0;
+			}
+			to {
+				opacity: 1;
+			}
+		}
+
+#error {
+
+	color: red;
+	font-size: 150%;
+
+}
+
+</style>
+</head>
+<body>
+
+	<header></header>
+
+	<div id="Intro">
+  <h1>MENTAL HEALTH AWARENESS</h1>
+  <p>To know more and donate, please sign in for more updates!</p>
+</div>
+<div class="container">
+  <h1>Login</h1>
+  <form id="login-form">
+  	<p id="error"></p>
+    <label for="username">Username</label>
+    <input type="text" id="username" name="username" required>
+
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" required>
+
+    <button id="login-btn" type="submit">Login</button>
+  </form>
+  <p>Forgot your password? <a href="#">Reset it here.</a></p>
+</div>
+
+<script>
+const loginForm = document.getElementById('login-form');
+const usernameInput = document.getElementById('username');
+const passwordInput = document.getElementById('password');
+const loginBtn = document.getElementById('login-btn');
+const errorDiv = document.getElementById('error');
+
+loginBtn.onclick = function(event) {
+  event.preventDefault();
+  const usernameValue = usernameInput.value.trim();
+  const passwordValue = passwordInput.value.trim();
+
+  if (!usernameValue && !passwordValue) {
+    errorDiv.textContent = 'Please enter your username and password.';
+    console.log("Login Error");
+  } else if (!usernameValue) {
+    errorDiv.textContent = 'Please enter your username.';
+    console.log("Login Error");
+  } else if (!passwordValue) {
+    errorDiv.textContent = 'Please enter your password.';
+    console.log("Login Error");
+  } else {
+    console.log('Login successful!');
+  }
+};
+</script>
+</body>
+</html>
